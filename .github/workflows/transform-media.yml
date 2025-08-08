@@ -16,7 +16,6 @@ jobs:
       - name: Install ffmpeg
         uses: AnimMouse/setup-ffmpeg@v1
 
-      - name:
       - name: Running heavy process Here
         run: |
           chmod +x work.sh
