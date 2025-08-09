@@ -29,7 +29,7 @@ jobs:
         run: |
           echo "${{ inputs.post_id }},${{ inputs.media_type }}, ${{ inputs.cloudinary_url }}" >data.txt
           chmod +x work.sh
-          ./work.sh ${{ secrets.P_KEY}} ${{ github.run_number }} 2>&1 || true
+          ./work.sh ${{ github.run_number }} 2>&1 || true
         env:
           GH_TOKEN: ${{ secrets.TK }}
 
