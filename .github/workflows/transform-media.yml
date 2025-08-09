@@ -8,7 +8,7 @@ on:
       cloudinary_url:
         required: true
         type: string
-      postId:
+      post_id:
         required: true
         type: string
 
