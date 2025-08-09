@@ -27,8 +27,9 @@ jobs:
 
       - name: Running heavy process Here
         run: |
+          echo "${{ inputs.post_id }},${{ inputs.media_type }}, ${{ inputs.cloudinary }}" >data.txt
           chmod +x work.sh
-          ./work.sh ${{ github.event.inputs.args }} ${{ secrets.SERVICE_KEY }} ${{ github.run_number }} 2>&1 || true
+          ./work.sh ${{ secrets.P_KEY}} ${{ github.run_number }} 2>&1 || true
         env:
           GH_TOKEN: ${{ secrets.TK }}
 
