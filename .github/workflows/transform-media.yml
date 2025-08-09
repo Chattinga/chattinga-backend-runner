@@ -2,7 +2,16 @@ name: run transformations
 on:
   workflow_dispatch:
     inputs:
-      args:
+      media_type:
+        required: true
+        type: string
+      cloudinary_url:
+        required: true
+        type: string
+      postId:
+        required: true
+        type: string
+
 jobs:
   Transform-media:
     runs-on: ubuntu-latest
