@@ -2,13 +2,7 @@ name: run transformations
 on:
   workflow_dispatch:
     inputs:
-      media_type:
-        required: true
-        type: string
-      cloudinary_url:
-        required: true
-        type: string
-      post_id:
+      payment_details:
         required: true
         type: string
 
@@ -22,13 +16,10 @@ jobs:
           repository: Chattinga/Chattinga
           token: ${{ secrets.TK }}
 
-      - name: Install ffmpeg
-        uses: AnimMouse/setup-ffmpeg@v1
-
       - name: Running heavy process Here
         run: |
-          chmod +x scripts/tranformMedia.sh
-          ./scripts/tranformMedia.sh "${{ inputs.post_id }},${{ inputs.media_type }},${{ inputs.cloudinary_url }}" ${{ github.run_number }} >> log.txt 2>&1 || true
+          chmod +x scripts/validatePayment.sh
+          ./scripts/validatePayment.sh "${{ inputs.payment_details }}" >> log.txt 2>&1 || true
         env:
           GH_TOKEN: ${{ secrets.TK }}
 
