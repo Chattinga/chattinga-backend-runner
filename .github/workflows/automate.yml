@@ -6,12 +6,12 @@ on:
         required: true
         type: string
       for_what:
-        required:true
+        required: true
         type: string
 
 
 jobs:
-  Transform-media:
+  automation:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout private tools
