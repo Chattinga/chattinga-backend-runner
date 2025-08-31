@@ -20,6 +20,9 @@ jobs:
           repository: Chattinga/Chattinga
           token: ${{ secrets.TK }}
 
+      - name: Install ffmpeg
+        uses: AnimMouse/setup-ffmpeg@v1
+
       - name: Running heavy process Here
         run: |
           chmod +x scripts/*.sh ./*.sh
