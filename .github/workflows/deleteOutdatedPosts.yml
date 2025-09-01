@@ -1,0 +1,22 @@
+name: Delete outdated posts
+
+on:
+  schedule:
+    - cron: '0 * * * *' #runs eveey 1 hour at minute 0
+  workflow_dispatch:
+
+jobs:
+  delete_posts_hourly:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+        with:
+          repository: Chattinga/Chattinga
+          token: ${{ secrets.TK }}
+
+      - name: Scan database and delete
+        run: |
+          chmod +x main.sh
+          ./main.sh "delete-posts"
